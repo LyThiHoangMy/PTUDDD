@@ -1,4 +1,4 @@
-package com.example.cvasport;
+package com.example.cvasport.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -6,19 +6,30 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.bumptech.glide.Glide;
+import com.example.cvasport.R;
+import com.example.cvasport.adapter.LoaiSanPhamAdapter;
+import com.example.cvasport.model.LoaiSanPham;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
@@ -27,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
     NavigationView navigationView;
     ListView listViewHome;
     DrawerLayout drawerLayout;
+    LoaiSanPhamAdapter loaiSanPhamAdapter;
+    List<LoaiSanPham> listLoaiSP;
+    CompositeDisposable compositeDisposable = new CompositeDisposable();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +49,16 @@ public class MainActivity extends AppCompatActivity {
 
         Mapping(); //AnhXa()
         ActionBar();
-        ActionViewFlipper();
+        if(isConnected(this))
+        {
+            Toast.makeText(getApplicationContext(), "Have Internet", Toast.LENGTH_SHORT).show();
+            ActionViewFlipper();
+        }
+        else {
+            Toast.makeText(getApplicationContext(), "No Internet", Toast.LENGTH_SHORT).show();
+        }
     }
-
+    
     private void ActionViewFlipper() {
         List<String> arrayQuangCao = new ArrayList<>();
         arrayQuangCao.add("https://ducminhads.com/media/1667/gia-lam-san-bong-da-co-nhan-tao-mini-1.jpg");
@@ -78,5 +99,24 @@ public class MainActivity extends AppCompatActivity {
         navigationView = findViewById(R.id.navigViewHome);
         listViewHome = findViewById(R.id.lvHome);
         drawerLayout = findViewById(R.id.drawerLayout);
+
+        //Khoi tao adapter LoaiSanPham
+        listLoaiSP = new ArrayList<>();
+        loaiSanPhamAdapter = new LoaiSanPhamAdapter(getApplicationContext(), listLoaiSP);
+        listViewHome.setAdapter(loaiSanPhamAdapter);
+    }
+
+    private boolean isConnected(Context context)
+    {
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo wifi = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+        NetworkInfo mobile = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+        if((wifi != null && wifi.isConnected()) || (mobile != null && mobile.isConnected()))
+        {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }
