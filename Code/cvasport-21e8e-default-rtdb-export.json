@@ -1,4 +1,42 @@
 {
+  "Pitch": {
+    "SB51": {
+      "Image": "https://htsport.vn/wp-content/uploads/2020/05/1-chien-thuat-bong-da-5-nguoi-kim-cuong-den.jpg",
+      "Name": "Pitch 51"
+    },
+    "SB52": {
+      "Image": "https://htsport.vn/wp-content/uploads/2020/05/1-chien-thuat-bong-da-5-nguoi-kim-cuong-den.jpg",
+      "Name": "Pitch 52"
+    },
+    "SB53": {
+      "Image": "https://htsport.vn/wp-content/uploads/2020/05/1-chien-thuat-bong-da-5-nguoi-kim-cuong-den.jpg",
+      "Name": "Pitch 53"
+    },
+    "SB71": {
+      "Image": "https://tse3.mm.bing.net/th?id=OIP.vs0x1WUCa4DH9LB-ZEgelgHaEv&pid=Api&P=0",
+      "Name": "Pitch 71"
+    },
+    "SB72": {
+      "Image": "https://tse3.mm.bing.net/th?id=OIP.vs0x1WUCa4DH9LB-ZEgelgHaEv&pid=Api&P=0",
+      "Name": "Pitch 72"
+    },
+    "SB73": {
+      "Image": "https://tse3.mm.bing.net/th?id=OIP.vs0x1WUCa4DH9LB-ZEgelgHaEv&pid=Api&P=0",
+      "Name": "Pitch 73"
+    },
+    "SB111": {
+      "Image": "https://tse3.mm.bing.net/th?id=OIP.ABFMJjWWuOnVXLShBjiC2AHaEj&pid=Api&P=0",
+      "Name": "Pitch 111"
+    },
+    "SB112": {
+      "Image": "https://tse3.mm.bing.net/th?id=OIP.ABFMJjWWuOnVXLShBjiC2AHaEj&pid=Api&P=0",
+      "Name": "Pitch 112"
+    },
+    "SB113": {
+      "Image": "https://tse3.mm.bing.net/th?id=OIP.ABFMJjWWuOnVXLShBjiC2AHaEj&pid=Api&P=0",
+      "Name": "Pitch 113"
+    }
+  },
   "Account": {
     "0327935982": {
       "password": "Admin",
@@ -12,21 +50,5 @@
       "Password": "Admin123",
       "Username": "Hoang My"
     }
-  },
-
-  "5 person soccer field": {
-    "SB51": {
-      "Name": "Pitch 51",
-      "Image": "https://htsport.vn/wp-content/uploads/2020/05/1-chien-thuat-bong-da-5-nguoi-kim-cuong-den.jpg"
-    },
-    "SB52": {
-      "Name": "Pitch 52",
-      "Image": "https://htsport.vn/wp-content/uploads/2020/05/1-chien-thuat-bong-da-5-nguoi-kim-cuong-den.jpg"
-    },
-    "SB53": {
-      "Name": "Pitch 53",
-      "Image": "https://htsport.vn/wp-content/uploads/2020/05/1-chien-thuat-bong-da-5-nguoi-kim-cuong-den.jpg"
-    }
   }
-  
 }
