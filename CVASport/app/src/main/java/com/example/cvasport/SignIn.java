@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -46,6 +47,8 @@ public class SignIn extends AppCompatActivity {
                             Account account = snapshot.child(inputPhone.getText().toString()).getValue(Account.class);
                             if (account.getPassword().equals(inputPass.getText().toString())) {
                                 Toast.makeText(SignIn.this, "Sign in successfully!", Toast.LENGTH_SHORT).show();
+                                Intent home = new Intent(SignIn.this, Home.class);
+                                startActivity(home);
                             }
                             else {
                                 Toast.makeText(SignIn.this, "Incorrect password!!!", Toast.LENGTH_SHORT).show();

@@ -5,8 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignIn"
-    android:background="#70F175">
+    tools:context=".SignIn">
 
     <TextView
         android:id="@+id/txtSignIn"
@@ -23,7 +22,7 @@
         android:textSize="36sp"
         android:textStyle="bold"
         android:textAlignment="center"
-        android:textColor="#000000"/>
+        android:textColor="#4CAF50"/>
 
     <EditText
         android:id="@+id/inputPhoneNumber"
