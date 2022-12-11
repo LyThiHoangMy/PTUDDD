@@ -4,14 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.cvasport.Common.Common;
 import com.example.cvasport.Model.Account;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -47,13 +45,7 @@ public class SignIn extends AppCompatActivity {
                             mDialog.dismiss();
                             Account account = snapshot.child(inputPhone.getText().toString()).getValue(Account.class);
                             if (account.getPassword().equals(inputPass.getText().toString())) {
-                                {
-                                    Toast.makeText(SignIn.this, "Welcome!!!", Toast.LENGTH_SHORT).show();
-                                    Intent home = new Intent(SignIn.this, Home.class);
-                                    Common.currentAccount = account;
-                                    startActivity(home);
-                                    finish();
-                                }
+                                Toast.makeText(SignIn.this, "Sign in successfully!", Toast.LENGTH_SHORT).show();
                             }
                             else {
                                 Toast.makeText(SignIn.this, "Incorrect password!!!", Toast.LENGTH_SHORT).show();
