@@ -1,2 +1,0 @@
-# PTUDDD
-Mobile application development
