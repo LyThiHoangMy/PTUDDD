@@ -9,29 +9,28 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.cvasport.R;
 import com.example.cvasport.databinding.FragmentGalleryBinding;
 
 public class GalleryFragment extends Fragment {
 
-    private FragmentGalleryBinding binding;
+    private RecyclerView drinkableList;
+    private View DrinkableFragmentView;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        GalleryViewModel galleryViewModel =
-                new ViewModelProvider(this).get(GalleryViewModel.class);
-
-        binding = FragmentGalleryBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
-
-        final TextView textView = binding.textGallery;
-        galleryViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        return root;
+    public GalleryFragment() {
     }
 
     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
+    public View onCreateView(LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+        DrinkableFragmentView = inflater.inflate(R.layout.fragment_gallery, container, false);
+
+        drinkableList = (RecyclerView) DrinkableFragmentView.findViewById(R.id.drinkable_rv);
+        drinkableList.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        return DrinkableFragmentView;
     }
 }

@@ -1,4 +1,4 @@
-package com.example.cvasport;
+package com.example.cvasport.Control;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.cvasport.R;
 
 public class MainActivity extends AppCompatActivity {
     Button btnSignUp, btnSignIn;

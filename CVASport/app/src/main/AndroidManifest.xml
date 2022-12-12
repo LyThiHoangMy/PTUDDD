@@ -15,7 +15,7 @@
         android:theme="@style/Theme.CVASport"
         tools:targetApi="31">
         <activity
-            android:name=".Home"
+            android:name=".Control.Home"
             android:exported="false"
             android:label="@string/title_activity_home"
             android:theme="@style/Theme.CVASport.NoActionBar">
@@ -24,21 +24,21 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".SignUp"
+            android:name=".Control.SignUp"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".SignIn"
+            android:name=".Control.SignIn"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".Control.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
