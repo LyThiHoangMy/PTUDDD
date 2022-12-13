@@ -39,7 +39,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private EditText userName, userEmail, userPassword, userPassword2;
     private ProgressBar loadingProgress;
-    private Button regBtn;
+    private Button regBtn, logInBtn;
 
     private FirebaseAuth mAuth;
 
@@ -54,10 +54,19 @@ public class RegisterActivity extends AppCompatActivity {
         userPassword2 = findViewById(R.id.regPassword2);
         loadingProgress = findViewById(R.id.regProgressBar);
         regBtn = findViewById(R.id.regBtn);
+        logInBtn = findViewById(R.id.logInBtn);
 
         loadingProgress.setVisibility(View.INVISIBLE);
 
         mAuth = FirebaseAuth.getInstance();
+
+        logInBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent login = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(login);
+            }
+        });
 
         regBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -153,8 +162,8 @@ public class RegisterActivity extends AppCompatActivity {
         finish();
     }
 
-    private void showMessage(String s) {
-        Toast.makeText(getApplicationContext(), "s", Toast.LENGTH_SHORT).show();
+    private void showMessage(String please_verify_all_field) {
+        Toast.makeText(getApplicationContext(), "please_verify_all_field", Toast.LENGTH_SHORT).show();
     }
 
     private void openGallery() {

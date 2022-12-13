@@ -8,14 +8,20 @@
 
     <LinearLayout
         android:id="@+id/layoutSlogan"
-        android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="50dp"
+        android:orientation="vertical"
+        android:gravity="center">
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="202dp"
             android:src="@drawable/logo" />
 
         <TextView
@@ -24,7 +30,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/slogan"
-            android:textStyle="italic"/>
+            android:textStyle="italic" />
     </LinearLayout>
 
     <LinearLayout
@@ -32,10 +38,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/layoutSlogan"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="23dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="80dp"
+        android:gravity="center"
         android:orientation="vertical"
-        android:gravity="center">
+        android:padding="10dp">
 
         <Button
             android:id="@+id/btnStartAdmin"
