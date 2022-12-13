@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.StartActivity">
+
+    <LinearLayout
+        android:id="@+id/layoutSlogan"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/txtSlogan"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/slogan"
+            android:textStyle="italic"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layoutSlogan"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="23dp"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnStartAdmin"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_centerInParent="true"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/reg_btn_style"
+            android:text="Start with Admin"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btnStart"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_centerInParent="true"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/reg_btn_style"
+            android:text="Start with user"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</RelativeLayout>

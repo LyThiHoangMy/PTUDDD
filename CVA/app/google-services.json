@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "681653952422",
+    "project_id": "cvas-79483",
+    "storage_bucket": "cvas-79483.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:681653952422:android:6f2a0fea888dec52b73967",
+        "android_client_info": {
+          "package_name": "com.example.cva"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "681653952422-de51blq8tro0m6adi6659qp2m6tupotj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cva",
+            "certificate_hash": "73e1e73f4a925b8153bb3410d6b2219329d0bfe7"
+          }
+        },
+        {
+          "client_id": "681653952422-mepq5fcfbtn2gukglltjokihng7jqqki.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDW5YDUaNBzfzJfCtfUfPtjKf1kFHCByZU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "681653952422-mepq5fcfbtn2gukglltjokihng7jqqki.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
