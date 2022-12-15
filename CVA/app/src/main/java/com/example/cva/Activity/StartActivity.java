@@ -12,6 +12,7 @@ import com.example.cva.R;
 public class StartActivity extends AppCompatActivity {
 
     Button btnStart;
+    Button btnStartAdmin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +20,15 @@ public class StartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start);
 
         btnStart = findViewById(R.id.btnStart);
+        btnStartAdmin = findViewById(R.id.btnStartAdmin);
+
+        btnStartAdmin.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent regis = new Intent(StartActivity.this, RegisterAdminActivity.class);
+                startActivity(regis);
+            }
+        }));
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

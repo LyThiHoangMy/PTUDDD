@@ -2,9 +2,11 @@
     <string name="app_name">CVA</string>
     <string name="slogan">Ly Thi Hoang My - 51900137. Nguyen Thi Thanh Hien - 52000835</string>
 
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nav_profile">Profile</string>
+    <string name="nav_news">News</string>
+    <string name="nav_logout">Logout</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_change">Change</string>
+    <string name="nav_account">Account</string>
 
 </resources>

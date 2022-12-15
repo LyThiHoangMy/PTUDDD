@@ -7,13 +7,20 @@
     android:layout_height="match_parent"
     tools:context=".Activity.HomeActivity"
     android:id="@+id/drawer_layout"
-    android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+    android:fitsSystemWindows="true">
 
-    <include
-        layout="@layout/app_bar_home"
+    <FrameLayout
+        android:id="@+id/content_frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#7ADD7E"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"/>
+    </FrameLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
@@ -22,8 +29,6 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:menu="@menu/drawer_view"
-        app:headerLayout="@layout/nav_header"
-        app:itemIconTint="#000000"
-        app:itemTextColor="#000000" />
+        app:headerLayout="@layout/nav_header"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>
