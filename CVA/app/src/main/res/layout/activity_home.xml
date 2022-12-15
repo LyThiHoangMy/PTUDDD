@@ -7,8 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".Activity.HomeActivity"
     android:id="@+id/drawer_layout"
-    android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+    android:fitsSystemWindows="true">
 
     <FrameLayout
         android:id="@+id/content_frame"
@@ -21,15 +20,6 @@
             android:layout_height="?attr/actionBarSize"
             android:background="#7ADD7E"
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar"/>
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="17dp"
-            android:src="@drawable/chat"
-            android:backgroundTint="#7ADD7E"/>
     </FrameLayout>
 
     <com.google.android.material.navigation.NavigationView
@@ -39,8 +29,6 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:menu="@menu/drawer_view"
-        app:headerLayout="@layout/nav_header"
-        app:itemIconTint="#000000"
-        app:itemTextColor="#000000" />
+        app:headerLayout="@layout/nav_header"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>

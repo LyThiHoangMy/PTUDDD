@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="5dp"
-        android:text="hoangmy"
+        android:text="Hoang My"
         android:textStyle="bold"
         android:textSize="18sp"/>
 
