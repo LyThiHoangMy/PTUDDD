@@ -29,21 +29,14 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Activity.HomeAdminActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".Activity.RegisterAdminActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".Activity.LoginActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Activity.HomeAdminActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -55,6 +48,13 @@
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
+        </activity>
+        <activity
+            android:name=".Activity.RegisterAdminActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value=""/>
         </activity>
         <activity
             android:name=".Activity.RegisterActivity"

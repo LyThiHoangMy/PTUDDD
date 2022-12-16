@@ -11,24 +11,23 @@ import com.example.cva.R;
 
 public class StartActivity extends AppCompatActivity {
 
-    Button btnStart;
-    Button btnStartAdmin;
+    Button btnStart, btnStartAdmin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-        btnStart = findViewById(R.id.btnStart);
         btnStartAdmin = findViewById(R.id.btnStartAdmin);
-
-        btnStartAdmin.setOnClickListener((new View.OnClickListener() {
+        btnStartAdmin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent regis = new Intent(StartActivity.this, RegisterAdminActivity.class);
-                startActivity(regis);
+            public void onClick(View v) {
+                Intent registerAdmin = new Intent(StartActivity.this, RegisterAdminActivity.class);
+                startActivity(registerAdmin);
             }
-        }));
+        });
+
+        btnStart = findViewById(R.id.btnStart);
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

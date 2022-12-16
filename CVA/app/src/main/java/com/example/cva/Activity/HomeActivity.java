@@ -2,78 +2,135 @@ package com.example.cva.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.ContentUris;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.example.cva.Fragment.AccountFragment;
+import com.example.cva.Fragment.DrinkableFragment;
+import com.example.cva.Fragment.NotificationFragment;
+import com.example.cva.Fragment.PitchFragment;
 import com.example.cva.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
-public class HomeActivity extends AppCompatActivity {
-    private DrawerLayout drawerLayout;
+public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+
+    FirebaseAuth mAuth;
+    FirebaseUser currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
-        drawerLayout = findViewById(R.id.drawer_layout);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setHomeAsUpIndicator(R.drawable.menu);
+
+        mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener((view) -> {
+            Snackbar.make(view, "Chat with CVASport", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
+        });
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open,R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
 
         NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(
-                new NavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(MenuItem item) {
-                        item.setChecked(true);
-                        drawerLayout.closeDrawers();
-                        return true;
-                    }
-                }
-        );
+        navigationView.setNavigationItemSelectedListener(this);
 
-        drawerLayout.addDrawerListener(
-                new DrawerLayout.DrawerListener() {
-                    @Override
-                    public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
+        //updateNavHeader();
+        NavigationView navigation = (NavigationView) findViewById(R.id.nav_view);
+        View headerView =navigation.getHeaderView(0);
+        TextView navUsername = headerView.findViewById(R.id.nav_username);
+        TextView navUserEmail = headerView.findViewById(R.id.nav_usermail);
+        //ImageView navUserPhoto = headerView.findViewById(R.id.nav_user_photo);
 
-                    }
+        navUserEmail.setText(currentUser.getEmail());
+        //navUsername.setText(currentUser.getDisplayName());
 
-                    @Override
-                    public void onDrawerOpened(@NonNull View drawerView) {
+        //Glide.with(this).load(currentUser.getPhotoUrl()).into(navUserPhoto);
+    }
 
-                    }
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if(drawer.isDrawerOpen(GravityCompat.START))
+        {
+            drawer.closeDrawer(GravityCompat.START);
+        }
+        else {
+            super.onBackPressed();
+        }
+    }
 
-                    @Override
-                    public void onDrawerClosed(@NonNull View drawerView) {
-
-                    }
-
-                    @Override
-                    public void onDrawerStateChanged(int newState) {
-
-                    }
-                }
-        );
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.home, menu);
+        return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId())
+        int id = item.getItemId();
+        if(id == R.id.action_settings)
         {
-            case android.R.id.home:
-                drawerLayout.openDrawer(GravityCompat.START);
-                return true;
+            return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if(id == R.id.nav_pitch)
+        {
+            getSupportFragmentManager().beginTransaction().replace(R.id.container_layout, new PitchFragment()).commit();
+
+        }
+        else if(id == R.id.nav_drinkable)
+        {
+            getSupportFragmentManager().beginTransaction().replace(R.id.container_layout, new DrinkableFragment()).commit();
+        }
+        else if(id == R.id.nav_account)
+        {
+            getSupportFragmentManager().beginTransaction().replace(R.id.container_layout, new AccountFragment()).commit();
+        }
+        else if(id == R.id.notification)
+        {
+            getSupportFragmentManager().beginTransaction().replace(R.id.container_layout, new NotificationFragment()).commit();
+        }
+        else if(id == R.id.nav_logout)
+        {
+            FirebaseAuth.getInstance().signOut();
+            Intent loginActivity = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(loginActivity);
+            finish();
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 }
