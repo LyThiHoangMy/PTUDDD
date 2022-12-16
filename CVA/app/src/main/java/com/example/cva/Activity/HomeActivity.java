@@ -83,6 +83,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         //navUsername.setText(currentUser.getDisplayName());
 
         //Glide.with(this).load(currentUser.getPhotoUrl()).into(navUserPhoto);
+
+        //Fragment
+        getSupportFragmentManager().beginTransaction().replace(R.id.container_layout, new PitchFragment()).commit();
     }
 
     private void initPopup() {

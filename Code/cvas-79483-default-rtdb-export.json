@@ -1,30 +1,4 @@
 {
-  "Account": {
-    "0327935982": {
-      "password": "admin",
-      "username": "Admin"
-    },
-    "0343230460": {
-      "Password": "thanhhien",
-      "Username": "Thanh Hien"
-    },
-    "0847611949": {
-      "Password": "hoangmy",
-      "Username": "Hoang My"
-    }
-  },
-
-  "AccAdmin": {
-    "0343230460": {
-      "Password": "Admin1234",
-      "Username": "Thanh Hien"
-    },
-    "0847611949": {
-      "Password": "Admin123",
-      "Username": "Hoang My"
-    }
-  },
-
   "Drinkable": {
     "NU01": {
       "Image": "https://foody24h.vn/uploads/collections/dua-xiem-ben-tre-4022-2021-11-075.jpg",
@@ -42,53 +16,71 @@
       "Price": "12000"
     }
   },
-
   "Pitch": {
     "SB111": {
+      "Date": "16/12/2022",
       "Image": "https://tse3.mm.bing.net/th?id=OIP.ABFMJjWWuOnVXLShBjiC2AHaEj&pid=Api&P=0",
       "Name": "Pitch 111 (11 person)",
       "Price": "150000",
-      "Reserved": true
+      "Reserved": true,
+      "Time": "06:30 - 07:30"
     },
     "SB112": {
+      "Date": "17/12/2022",
       "Image": "https://tse3.mm.bing.net/th?id=OIP.ABFMJjWWuOnVXLShBjiC2AHaEj&pid=Api&P=0",
       "Name": "Pitch 112 (11 person)",
-      "Reserved": false
+      "Reserved": false,
+      "Time": "07:40 - 08:40"
     },
     "SB113": {
+      "Date": "18/12/2022",
       "Image": "https://tse3.mm.bing.net/th?id=OIP.ABFMJjWWuOnVXLShBjiC2AHaEj&pid=Api&P=0",
       "Name": "Pitch 113 (11 person)",
-      "Reserved": false
+      "Reserved": false,
+      "Time": "08:50 - 09:50"
     },
     "SB51": {
+      "Date": "19/12/2022",
       "Image": "https://htsport.vn/wp-content/uploads/2020/05/1-chien-thuat-bong-da-5-nguoi-kim-cuong-den.jpg",
       "Name": "Pitch 51 (5 person)",
-      "Reserved": true
+      "Reserved": true,
+      "Time": "10:00 - 11:00"
     },
     "SB52": {
+      "Date": "18/12/2022",
       "Image": "https://htsport.vn/wp-content/uploads/2020/05/1-chien-thuat-bong-da-5-nguoi-kim-cuong-den.jpg",
       "Name": "Pitch 52 (5 person)",
-      "Reserved": false
+      "Reserved": false,
+      "Time": "10:00 - 11:00"
     },
     "SB53": {
+      "Date": "19/12/2022",
       "Image": "https://htsport.vn/wp-content/uploads/2020/05/1-chien-thuat-bong-da-5-nguoi-kim-cuong-den.jpg",
       "Name": "Pitch 53 (5 person)",
-      "Reserved": true
+      "Reserved": true,
+      "Time": "08:50 - 09:50"
     },
     "SB71": {
+      "Date": "19/12/2022",
       "Image": "https://tse3.mm.bing.net/th?id=OIP.vs0x1WUCa4DH9LB-ZEgelgHaEv&pid=Api&P=0",
       "Name": "Pitch 71 (7 person)",
-      "Reserved": false
+      "Reserved": false,
+      "Time": "08:50 - 09:50"
     },
     "SB72": {
+      "Date": "20/12/2022",
       "Image": "https://tse3.mm.bing.net/th?id=OIP.vs0x1WUCa4DH9LB-ZEgelgHaEv&pid=Api&P=0",
       "Name": "Pitch 72 (7 person)",
-      "Reserved": true
+      "Reserved": true,
+      "Time": "08:50 - 09:50"
     },
     "SB73": {
+      
+      "Date": "21/12/2022",
       "Image": "https://tse3.mm.bing.net/th?id=OIP.vs0x1WUCa4DH9LB-ZEgelgHaEv&pid=Api&P=0",
       "Name": "Pitch 73 (7 person)",
-      "Reserved": true
+      "Reserved": true,
+      "Time": "10:00 - 11:00"
     }
   }
 }
