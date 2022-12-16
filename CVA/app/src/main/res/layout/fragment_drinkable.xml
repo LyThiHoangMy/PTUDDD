@@ -7,14 +7,9 @@
     android:layout_margin="10dp">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/tvDrinkFrag"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="This is Drinkable Fragment"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:textSize="25sp"
-        android:textAlignment="center" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvPitchFrag"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </RelativeLayout>
