@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.cva.Adapter.PitchAdapter;
 import com.example.cva.Model.PitchModel;
 import com.example.cva.R;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -27,6 +28,7 @@ public class PitchFragment extends Fragment {
     private String mParam2;
 
     RecyclerView rcvPitch;
+    PitchAdapter adapter;
 
     public PitchFragment() {
 
@@ -63,6 +65,8 @@ public class PitchFragment extends Fragment {
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("Pitch"),PitchModel.class)
                         .build();
 
+        adapter = new PitchAdapter(options);
+        rcvPitch.setAdapter(adapter);
         return view;
     }
 
@@ -71,5 +75,17 @@ public class PitchFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         getActivity().setTitle("Pitch");
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        adapter.stopListening();
     }
 }
