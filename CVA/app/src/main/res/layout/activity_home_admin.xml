@@ -22,7 +22,7 @@
                 android:id="@+id/toolbarAdmin"
                 android:layout_width="match_parent"
                 android:layout_height="?actionBarSize"
-                android:background="#105E13"
+                android:background="#7ADD7E"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
         </com.google.android.material.appbar.AppBarLayout>
 

@@ -22,7 +22,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
+//import com.bumptech.glide.Glide;
 import com.example.cva.Fragment.AccountFragment;
 import com.example.cva.Fragment.DrinkableFragment;
 import com.example.cva.Fragment.NotificationFragment;
@@ -101,7 +101,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         popupAddBtn = popAddPost.findViewById(R.id.popupButton);
         popupProgress = popAddPost.findViewById(R.id.progressBar_popup);
 
-        Glide.with(HomeActivity.this).load(currentUser.getPhotoUrl()).into(popupUserImage);
+        //Glide.with(HomeActivity.this).load(currentUser.getPhotoUrl()).into(popupUserImage);
 
         popupAddBtn.setOnClickListener(new View.OnClickListener() {
             @Override
