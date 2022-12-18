@@ -20,7 +20,6 @@ import com.example.cva.Fragment.FragmentChangeAd;
 import com.example.cva.Fragment.FragmentHomeAd;
 import com.example.cva.Fragment.FragmentNewsAd;
 import com.example.cva.Fragment.FragmentProfileAd;
-import com.example.cva.Fragment.PitchFragment;
 import com.example.cva.R;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -63,7 +62,7 @@ public class HomeAdminActivity extends AppCompatActivity implements NavigationVi
 
         navEmail.setText(currenUser.getEmail());
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.frameAdmin, new PitchFragment()).commit();
+        //getSupportFragmentManager().beginTransaction().replace(R.id.frameAdmin, new PitchFragment()).commit();
 
         //replaceFragment(new FragmentHomeAdmin());
         //navigationView.getMenu().findItem(R.id.nav_home).setChecked(true);

@@ -2,8 +2,6 @@ package com.example.cva.Fragment;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -14,10 +12,10 @@ import com.example.cva.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link DrinkableFragment#newInstance} factory method to
+ * Use the {@link CartFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class DrinkableFragment extends Fragment {
+public class CartFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -28,7 +26,7 @@ public class DrinkableFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public DrinkableFragment() {
+    public CartFragment() {
         // Required empty public constructor
     }
 
@@ -38,11 +36,11 @@ public class DrinkableFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment DrinkableFragment.
+     * @return A new instance of fragment CartFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static DrinkableFragment newInstance(String param1, String param2) {
-        DrinkableFragment fragment = new DrinkableFragment();
+    public static CartFragment newInstance(String param1, String param2) {
+        CartFragment fragment = new CartFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -63,13 +61,6 @@ public class DrinkableFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_drinkable, container, false);
-    }
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        getActivity().setTitle("Drinkable");
+        return inflater.inflate(R.layout.fragment_cart, container, false);
     }
 }
