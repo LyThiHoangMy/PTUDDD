@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -13,6 +15,7 @@ import com.example.cva.Adapter.PopularAdapter;
 import com.example.cva.Model.CategoryModel;
 import com.example.cva.Model.PitchModel;
 import com.example.cva.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -22,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseUser currentUser;
     TextView mailUser;
+    ImageView avatar;
 
     private RecyclerView.Adapter adapter, adapter2;
     private RecyclerView rcvCategory, rcvPopular;
@@ -36,9 +40,17 @@ public class MainActivity extends AppCompatActivity {
 
         mailUser = findViewById(R.id.tvHelloUser);
         mailUser.setText("Hi " + currentUser.getEmail());
+        avatar = findViewById(R.id.avatar);
+        avatar.setOnClickListener((view) -> {
+            FirebaseAuth.getInstance().signOut();
+            Intent loginActivity = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(loginActivity);
+            finish();
+        });
 
         rcvCategory();
         rcvPopular();
+
     }
 
     private void rcvPopular() {

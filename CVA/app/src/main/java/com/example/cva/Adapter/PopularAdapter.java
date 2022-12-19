@@ -1,5 +1,7 @@
 package com.example.cva.Adapter;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.cva.Activity.ShowDetailPitchActivity;
 import com.example.cva.Model.PitchModel;
 import com.example.cva.R;
 
@@ -31,7 +34,7 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.title.setText(pitchModels.get(position).getTitle());
         holder.fee.setText(String.valueOf(pitchModels.get(position).getFee()));
 
@@ -42,6 +45,15 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHold
         Glide.with(holder.itemView.getContext())
                 .load(drawableResourceId)
                 .into(holder.pic);
+
+        holder.addBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(holder.itemView.getContext(), ShowDetailPitchActivity.class);
+                intent.putExtra("object",pitchModels.get(position));
+                holder.itemView.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override
