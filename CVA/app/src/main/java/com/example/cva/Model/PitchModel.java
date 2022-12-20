@@ -1,8 +1,10 @@
 package com.example.cva.Model;
 
-public class PitchModel {
+import java.io.Serializable;
+
+public class PitchModel implements Serializable {
     private String title, pic, des;
-    private int start, time;
+    private int start, time, numberInCart;
     private double fee;
 
     public PitchModel() {}
@@ -14,6 +16,14 @@ public class PitchModel {
         this.fee = fee;
         this.start = start;
         this.time = time;
+    }
+
+    public int getNumberInCart() {
+        return numberInCart;
+    }
+
+    public void setNumberInCart(int numberInCart) {
+        this.numberInCart = numberInCart;
     }
 
     public String getTitle() {
