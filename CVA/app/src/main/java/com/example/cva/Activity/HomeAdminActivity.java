@@ -12,10 +12,12 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.Menu;
@@ -39,6 +41,7 @@ import java.io.IOException;
 
 public class HomeAdminActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
+    private static final int REQUEST_PICK_PHOTO = 100;
     FirebaseAuth mAuth;
     FirebaseUser currenUser;
     private ImageView img_admin_tool;
@@ -75,11 +78,18 @@ public class HomeAdminActivity extends AppCompatActivity implements NavigationVi
                 }
 
             }
+//            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//                final int takeFlags = data.getFlags() & Intent.FLAG_GRANT_READ_URI_PERMISSION;
+//                ContentResolver resolver = getActivity().getContentResolver();
+//                for (Uri uri : images) {
+//                    resolver.takePersistableUriPermission(uri, takeFlags);
+//                }
+//            }
         }
     });
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_admin);
 
@@ -99,7 +109,7 @@ public class HomeAdminActivity extends AppCompatActivity implements NavigationVi
         NavigationView navigationView = findViewById(R.id.navigation_view_admin);
         navigationView.setNavigationItemSelectedListener(this);
 
-        //updateNavHeader();
+        //updateLayoutNavAdmin();
         NavigationView navigation = (NavigationView) findViewById(R.id.navigation_view_admin);
         View headerView = navigation.getHeaderView(0);
         TextView navName = headerView.findViewById(R.id.name_admin_tool);
@@ -114,7 +124,7 @@ public class HomeAdminActivity extends AppCompatActivity implements NavigationVi
         //navigationView.getMenu().findItem(R.id.nav_home).setChecked(true);
 
     }
-
+//
 //    private void initUi(){
 //        img_admin_tool = findViewById(R.id.img_admin_tool);
 //        name_admin_tool = findViewById(R.id.name_admin_tool);
@@ -193,12 +203,20 @@ public class HomeAdminActivity extends AppCompatActivity implements NavigationVi
     }
 
     public void openGallery() {
-        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        mActivityResultLauncher.launch(Intent.createChooser(intent, "Select Picture"));
 
-    }
+        Intent intent;
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
+            intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+            intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+        }else{
+            intent = new Intent(Intent.ACTION_GET_CONTENT);
+        }
+        intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_OPEN_DOCUMENT);
+        mActivityResultLauncher.launch(Intent.createChooser(intent, "Select Picture"));    }
 
 
 }

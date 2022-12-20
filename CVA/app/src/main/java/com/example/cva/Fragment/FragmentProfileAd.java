@@ -65,12 +65,12 @@ public class FragmentProfileAd extends Fragment {
             }
         });
 
-//        bt_update_admin_profile.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                onClickUpdateProfile();
-//            }
-//        });
+        bt_update_admin_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onClickUpdateProfile();
+            }
+        });
     }
 
     private void onClickRequestPermission() {
@@ -117,27 +117,27 @@ public class FragmentProfileAd extends Fragment {
     }
 
 
-//    private void onClickUpdateProfile() {
-//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//        if(user == null){
-//            return;
-//        }
-//        String full_name = full_name_admin_profile.getText().toString().trim();
-//        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-//                .setDisplayName(full_name)
-//                .setPhotoUri(mUri)
-//                .build();
-//
-//        user.updateProfile(profileUpdates)
-//                .addOnCompleteListener(new OnCompleteListener<Void>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<Void> task) {
-//                        if (task.isSuccessful()) {
-//                            Toast.makeText(getActivity(),"update profile success", Toast.LENGTH_SHORT).show();
-//                            //mHomeAdminActivity.showUserInformation();
-//                        }
-//                    }
-//                });
-//    }
+    private void onClickUpdateProfile() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if(user == null){
+            return;
+        }
+        String full_name = full_name_admin_profile.getText().toString().trim();
+        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                .setDisplayName(full_name)
+                .setPhotoUri(mUri)
+                .build();
+
+        user.updateProfile(profileUpdates)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(getActivity(),"update profile success", Toast.LENGTH_SHORT).show();
+                            //mHomeAdminActivity.showUserInformation();
+                        }
+                    }
+                });
+    }
 
 }
