@@ -6,12 +6,12 @@
     android:orientation="vertical"
     android:gravity="bottom">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/img_admin_tool"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:src="@mipmap/ic_launcher"
-        android:layout_marginStart="10dp"/>
+        android:layout_marginStart="10dp"
+        android:src="@drawable/avt" />
 
     <TextView
         android:id="@+id/name_admin_tool"

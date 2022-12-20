@@ -1,5 +1,10 @@
 package com.example.cva.Activity;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -8,7 +13,11 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +25,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 //import android.widget.Toolbar;
 
+import com.bumptech.glide.Glide;
 import com.example.cva.Fragment.FragmentChangeAd;
 import com.example.cva.Fragment.FragmentHomeAd;
 import com.example.cva.Fragment.FragmentNewsAd;
@@ -25,12 +35,48 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.io.IOException;
+
 public class HomeAdminActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     FirebaseAuth mAuth;
     FirebaseUser currenUser;
+    private ImageView img_admin_tool;
+    private TextView name_admin_tool, email_admin_tool;
+
+
+    private static final int FRAGMENT_HOME = 0;
+    private static final int FRAGMENT_CHANGE = 3;
+    private static final int FRAGMENT_NEWS =2 ;
+    private static final int FRAGMENT_PROFILE = 1;
+
+
 
     private DrawerLayout mDrawerLayout;
+    public static final int MY_REQUEST_CODE = 10;
+    final private FragmentProfileAd fragmentProfileAd = new FragmentProfileAd();
+
+    final private ActivityResultLauncher<Intent> mActivityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+        @Override
+        public void onActivityResult(ActivityResult result) {
+            if(result.getResultCode()== RESULT_OK){
+                Intent intent = result.getData();
+                if(intent == null){
+                    return;
+                }
+                Uri uri = intent.getData();
+                fragmentProfileAd.setUri(uri);
+                try {
+                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),uri );
+                    fragmentProfileAd.setBitmapImageView(bitmap);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }
+    });
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +115,32 @@ public class HomeAdminActivity extends AppCompatActivity implements NavigationVi
 
     }
 
+//    private void initUi(){
+//        img_admin_tool = findViewById(R.id.img_admin_tool);
+//        name_admin_tool = findViewById(R.id.name_admin_tool);
+//        email_admin_tool = findViewById(R.id.email_admin_tool);
+//
+//    }
+//
+//    public void showUserInformation(){
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//        if(user==null){
+//            return;
+//        }
+//        String name = user.getDisplayName();
+//        String email = user.getEmail();
+//        Uri photoUrl = user.getPhotoUrl();
+//
+//        if(name == null){
+//            name_admin_tool.setVisibility(View.GONE);
+//        }else{
+//            name_admin_tool.setVisibility(View.VISIBLE);
+//            name_admin_tool.setText(name);
+//        }
+//        name_admin_tool.setText(email);
+//        Glide.with(this).load(photoUrl).error(R.drawable.avt).into(img_admin_tool);
+//    }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawerLayoutAdmin);
@@ -91,12 +163,9 @@ public class HomeAdminActivity extends AppCompatActivity implements NavigationVi
     public boolean onNavigationItemSelected( MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.nav_home) {
-                //replaceFragment(new FragmentHomeAdmin());
-                //mCurrentFragment = FRAGMENT_HOME;
                 getSupportFragmentManager().beginTransaction().replace(R.id.frameAdmin, new FragmentHomeAd()).commit();
         }else if (id == R.id.nav_profile) {
-                getSupportFragmentManager().beginTransaction().replace(R.id.frameAdmin, new FragmentProfileAd()).commit();
-
+                getSupportFragmentManager().beginTransaction().replace(R.id.frameAdmin, fragmentProfileAd).commit();
         } else if (id == R.id.nav_news) {
                 getSupportFragmentManager().beginTransaction().replace(R.id.frameAdmin, new FragmentNewsAd()).commit();
 
@@ -113,12 +182,23 @@ public class HomeAdminActivity extends AppCompatActivity implements NavigationVi
         return true;
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(requestCode == MY_REQUEST_CODE){
+            if(grantResults.length >0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                openGallery();
+            }
+        }
+    }
 
-//
-//        private void replaceFragment(Fragment fragment){
-//            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//            transaction.replace(R.id.content_frame, fragment);
-//            transaction.commit();
-//    }
+    public void openGallery() {
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        mActivityResultLauncher.launch(Intent.createChooser(intent, "Select Picture"));
+
+    }
+
 
 }
