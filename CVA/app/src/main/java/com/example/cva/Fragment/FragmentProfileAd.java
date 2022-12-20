@@ -134,7 +134,7 @@ public class FragmentProfileAd extends Fragment {
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(getActivity(),"update profile success", Toast.LENGTH_SHORT).show();
-                            //mHomeAdminActivity.showUserInformation();
+                            mHomeAdminActivity.showUserInformation();
                         }
                     }
                 });

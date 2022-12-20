@@ -78,13 +78,7 @@ public class HomeAdminActivity extends AppCompatActivity implements NavigationVi
                 }
 
             }
-//            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-//                final int takeFlags = data.getFlags() & Intent.FLAG_GRANT_READ_URI_PERMISSION;
-//                ContentResolver resolver = getActivity().getContentResolver();
-//                for (Uri uri : images) {
-//                    resolver.takePersistableUriPermission(uri, takeFlags);
-//                }
-//            }
+
         }
     });
 
@@ -116,40 +110,34 @@ public class HomeAdminActivity extends AppCompatActivity implements NavigationVi
         TextView navEmail = headerView.findViewById(R.id.email_admin_tool);
         ImageView navImg = headerView.findViewById(R.id.img_admin_tool);
 
-        navEmail.setText(currenUser.getEmail());
-
-        //getSupportFragmentManager().beginTransaction().replace(R.id.frameAdmin, new PitchFragment()).commit();
-
-        //replaceFragment(new FragmentHomeAdmin());
-        //navigationView.getMenu().findItem(R.id.nav_home).setChecked(true);
 
     }
-//
-//    private void initUi(){
-//        img_admin_tool = findViewById(R.id.img_admin_tool);
-//        name_admin_tool = findViewById(R.id.name_admin_tool);
-//        email_admin_tool = findViewById(R.id.email_admin_tool);
-//
-//    }
-//
-//    public void showUserInformation(){
-//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//        if(user==null){
-//            return;
-//        }
-//        String name = user.getDisplayName();
-//        String email = user.getEmail();
-//        Uri photoUrl = user.getPhotoUrl();
-//
-//        if(name == null){
-//            name_admin_tool.setVisibility(View.GONE);
-//        }else{
-//            name_admin_tool.setVisibility(View.VISIBLE);
-//            name_admin_tool.setText(name);
-//        }
-//        name_admin_tool.setText(email);
-//        Glide.with(this).load(photoUrl).error(R.drawable.avt).into(img_admin_tool);
-//    }
+    public void showUserInformation(){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if(user==null){
+            return;
+        }
+        String name = user.getDisplayName();
+        String email = user.getEmail();
+        Uri photoUrl = user.getPhotoUrl();
+
+        //updateLayoutNavAdmin();
+        NavigationView navigation = (NavigationView) findViewById(R.id.navigation_view_admin);
+        View headerView = navigation.getHeaderView(0);
+        TextView navName = headerView.findViewById(R.id.name_admin_tool);
+        TextView navEmail = headerView.findViewById(R.id.email_admin_tool);
+        ImageView navImg = headerView.findViewById(R.id.img_admin_tool);
+        navEmail.setText(currenUser.getEmail());
+
+        if(name == null){
+            navName.setVisibility(View.GONE);
+        }else{
+            navName.setVisibility(View.VISIBLE);
+            navName.setText(name);
+        }
+        navEmail.setText(email);
+        Glide.with(this).load(photoUrl).error(R.drawable.avt).into(navImg);
+    }
 
     @Override
     public void onBackPressed() {
