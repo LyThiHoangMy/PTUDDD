@@ -3,27 +3,16 @@ package com.example.cva.Model;
 import java.io.Serializable;
 
 public class PitchModel implements Serializable {
-    private String title, pic, des;
-    private int start, time, numberInCart;
-    private double fee;
+    private String title, pic, des, start, fee;
 
     public PitchModel() {}
 
-    public PitchModel(String title, String pic, String des, double fee, int start, int time) {
+    public PitchModel(String title, String pic, String des, String start, String fee) {
         this.title = title;
         this.pic = pic;
         this.des = des;
-        this.fee = fee;
         this.start = start;
-        this.time = time;
-    }
-
-    public int getNumberInCart() {
-        return numberInCart;
-    }
-
-    public void setNumberInCart(int numberInCart) {
-        this.numberInCart = numberInCart;
+        this.fee = fee;
     }
 
     public String getTitle() {
@@ -50,27 +39,19 @@ public class PitchModel implements Serializable {
         this.des = des;
     }
 
-    public int getStart() {
+    public String getStart() {
         return start;
     }
 
-    public void setStart(int start) {
+    public void setStart(String start) {
         this.start = start;
     }
 
-    public int getTime() {
-        return time;
-    }
-
-    public void setTime(int time) {
-        this.time = time;
-    }
-
-    public double getFee() {
+    public String getFee() {
         return fee;
     }
 
-    public void setFee(double fee) {
+    public void setFee(String fee) {
         this.fee = fee;
     }
 }
