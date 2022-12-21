@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragment.HomeFragment"
-    android:background="#ffffff">
+    tools:context=".Fragment.HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <ScrollView
@@ -15,45 +14,45 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/hello"
+                    android:id="@+id/tvHelloUser"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="20dp"
-                    android:text="Hi hoangmy"
-                    android:textColor="#339E38"
+                    android:text="Hi hoangmy@gmail.com"
+                    android:textColor="#339e38"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"/>
 
                 <TextView
-                    android:id="@+id/tvSearch"
+                    android:id="@+id/tvWelcome"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:text="Welcome to CVASport"
-                    android:textColor="#1E9323"
+                    android:textColor="#1e9323"
                     android:textSize="16sp"
-                    app:layout_constraintStart_toStartOf="@+id/hello"
-                    app:layout_constraintTop_toBottomOf="@+id/hello" />
+                    app:layout_constraintStart_toStartOf="@+id/tvHelloUser"
+                    app:layout_constraintTop_toBottomOf="@+id/tvHelloUser"/>
 
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/avatar"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginEnd="30dp"
                     android:src="@drawable/userphoto"
-                    app:layout_constraintBottom_toBottomOf="@+id/tvSearch"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvWelcome"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/hello" />
+                    app:layout_constraintTop_toBottomOf="@+id/tvHelloUser" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintLayout"
@@ -64,7 +63,7 @@
                     android:layout_marginEnd="30dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvSearch">
+                    app:layout_constraintTop_toBottomOf="@+id/tvWelcome">
 
                     <ImageView
                         android:id="@+id/banner"
@@ -102,7 +101,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:text="List of pitch"
+                    android:text="Category"
                     android:textColor="#000000"
                     android:textSize="16sp"
                     android:textStyle="bold"
@@ -110,9 +109,12 @@
                     app:layout_constraintTop_toBottomOf="@+id/searchAbAdmin" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerView"
+                    android:id="@+id/recyclerCategory"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/nameSbAdmin" />
@@ -127,15 +129,33 @@
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="@+id/searchAbAdmin"
-                    app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+                    app:layout_constraintTop_toBottomOf="@+id/recyclerCategory" />
+
+                <TextView
+                    android:id="@+id/tvSeeMore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="See more"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="30dp"
+                    android:textColor="#F44336"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toTopOf="@+id/textView5"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView5"
+                    app:layout_constraintEnd_toEndOf="parent"/>
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcvPopular"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView5" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

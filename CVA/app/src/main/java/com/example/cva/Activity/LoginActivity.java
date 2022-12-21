@@ -37,17 +37,9 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.loginBtn);
         loginProgress = findViewById(R.id.loginProgressBar);
         mAuth = FirebaseAuth.getInstance();
-        mainActivity = new Intent(this, com.example.cva.Activity.MainActivity.class);
-        loginPhoto = findViewById(R.id.login_photo);
 
-        loginPhoto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent register = new Intent(getApplicationContext(), RegisterActivity.class);
-                startActivity(register);
-                finish();
-            }
-        });
+        mainActivity = new Intent(this, MainActivity.class);
+        loginPhoto = findViewById(R.id.login_photo);
 
         loginProgress.setVisibility(View.INVISIBLE);
         btnLogin.setOnClickListener(new View.OnClickListener() {

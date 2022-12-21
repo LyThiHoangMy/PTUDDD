@@ -1,85 +1,90 @@
 package com.example.cva.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.cva.Adapter.CategoryAdapter;
-import com.example.cva.Adapter.PopularAdapter;
-import com.example.cva.Model.CategoryModel;
-import com.example.cva.Model.PitchModel;
+import com.example.cva.Adapter.ViewPagerAdapter;
 import com.example.cva.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    FirebaseAuth mAuth;
-    FirebaseUser currentUser;
-    TextView mailUser;
-    ImageView avatar;
 
-    private RecyclerView.Adapter adapter, adapter2;
-    private RecyclerView rcvCategory, rcvPopular;
+    private BottomNavigationView mNavigationView;
+    private ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mAuth = FirebaseAuth.getInstance();
-        currentUser = mAuth.getCurrentUser();
+        mNavigationView = findViewById(R.id.bottomNav);
+        mViewPager = findViewById(R.id.viewPager);
 
-        mailUser = findViewById(R.id.tvHelloUser);
-        mailUser.setText("Hi " + currentUser.getEmail());
-        avatar = findViewById(R.id.avatar);
-        avatar.setOnClickListener((view) -> {
-            FirebaseAuth.getInstance().signOut();
-            Intent loginActivity = new Intent(getApplicationContext(), LoginActivity.class);
-            startActivity(loginActivity);
-            finish();
+        setUpViewPager();
+
+        mNavigationView.setOnNavigationItemSelectedListener((item) -> {
+            switch (item.getItemId())
+            {
+                case R.id.button_home:
+                    mViewPager.setCurrentItem(0);
+                    break;
+                case R.id.button_profile:
+                    mViewPager.setCurrentItem(1);
+                    break;
+                case R.id.button_cart:
+                    mViewPager.setCurrentItem(2);
+                    break;
+                case R.id.button_support:
+                    mViewPager.setCurrentItem(3);
+                    break;
+                case R.id.button_setting:
+                    mViewPager.setCurrentItem(4);
+                    break;
+            }
+            return true;
         });
-
-        rcvCategory();
-        rcvPopular();
-
     }
 
-    private void rcvPopular() {
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        rcvPopular = findViewById(R.id.rcvPopular);
-        rcvPopular.setLayoutManager(linearLayoutManager);
+    private void setUpViewPager() {
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        mViewPager.setAdapter(viewPagerAdapter);
 
-        ArrayList<PitchModel> pitchList = new ArrayList<>();
-        pitchList.add(new PitchModel("SB501","pitch5","Capacity: 5 people",80.000, 5, 20));
-        pitchList.add(new PitchModel("SB502","pitch5","Capacity: 5 people",80.000, 4, 18));
-        pitchList.add(new PitchModel("SB503","pitch5","Capacity: 5 people",80.000, 3, 16));
-        pitchList.add(new PitchModel("SB701","pitch7","Capacity: 7 people",100.000, 2, 14));
-        pitchList.add(new PitchModel("SB111","pitch11","Capacity: 11 people",120.000, 1, 12));
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
-        adapter2 = new PopularAdapter(pitchList);
-        rcvPopular.setAdapter(adapter2);
-    }
+            }
 
-    private void rcvCategory() {
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        rcvCategory = findViewById(R.id.recyclerCategory);
-        rcvCategory.setLayoutManager(linearLayoutManager);
+            @Override
+            public void onPageSelected(int position) {
+                switch (position)
+                {
+                    case 0:
+                        mNavigationView.getMenu().findItem(R.id.button_home).setChecked(true);
+                        break;
+                    case 1:
+                        mNavigationView.getMenu().findItem(R.id.button_profile).setChecked(true);
+                        break;
+                    case 2:
+                        mNavigationView.getMenu().findItem(R.id.button_cart).setChecked(true);
+                        break;
+                    case 3:
+                        mNavigationView.getMenu().findItem(R.id.button_support).setChecked(true);
+                        break;
+                    case 4:
+                        mNavigationView.getMenu().findItem(R.id.button_setting).setChecked(true);
+                        break;
+                }
+            }
 
-        ArrayList<CategoryModel> categoryList = new ArrayList<>();
-        categoryList.add(new CategoryModel("Pitch 5", "filter_5"));
-        categoryList.add(new CategoryModel("Pitch 7", "filter_7"));
-        categoryList.add(new CategoryModel("Pitch 11", "filter_11"));
+            @Override
+            public void onPageScrollStateChanged(int state) {
 
-        adapter = new CategoryAdapter(categoryList);
-        rcvCategory.setAdapter(adapter);
+            }
+        });
     }
 }
