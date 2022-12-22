@@ -1,14 +1,271 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     tools:context=".Fragment.ProfileFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Profile fragment" />
+    <include
+        android:id="@+id/include"
+        layout="@layout/toolbar_profile" />
 
-</FrameLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_avatar_name_profile"
+        android:layout_width="match_parent"
+        android:layout_height="263dp"
+        android:gravity="center"
+        android:paddingTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.102">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/avatarProfile"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_marginTop="75dp"
+            android:src="@drawable/avt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/nameProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Ly Hoang My"
+            android:textColor="#1F7022"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/avatarProfile" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            android:background="#368F3A"
+            android:paddingHorizontal="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/nameProfile" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_firstname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/layout_avatar_name_profile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/iconFName"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/person"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/textFName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="First name"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#1F7022"
+            android:layout_marginLeft="5dp"
+            app:layout_constraintStart_toEndOf="@+id/iconFName"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/firstname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ly"
+            android:layout_marginLeft="25dp"
+            android:textSize="16sp"
+            android:textColor="#1F7022"
+            app:layout_constraintStart_toEndOf="@+id/textFName"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            android:background="#5ED363"
+            android:paddingHorizontal="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/firstname" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_lastname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/layout_firstname"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/iconLName"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/person"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/textLName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Last name"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#1F7022"
+            android:layout_marginLeft="5dp"
+            app:layout_constraintStart_toEndOf="@+id/iconLName"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/lastname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hoang My"
+            android:layout_marginLeft="25dp"
+            android:textSize="16sp"
+            android:textColor="#1F7022"
+            app:layout_constraintStart_toEndOf="@+id/textLName"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            android:background="#5ED363"
+            android:paddingHorizontal="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/lastname" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_mail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/layout_lastname"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/iconMail"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/mail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/textMail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mail"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#1F7022"
+            android:layout_marginLeft="5dp"
+            app:layout_constraintStart_toEndOf="@+id/iconMail"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/mail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="hoangmy@gmail.com"
+            android:layout_marginLeft="72dp"
+            android:textSize="16sp"
+            android:textColor="#1F7022"
+            app:layout_constraintStart_toEndOf="@+id/textMail"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            android:background="#5ED363"
+            android:paddingHorizontal="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/mail" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_mail"
+        app:layout_constraintVertical_bias="0.177">
+
+        <TextView
+            android:id="@+id/btnEdit"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:background="@drawable/button_profile"
+            android:drawableLeft="@drawable/edit"
+            android:paddingLeft="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:text="Edit Profile"
+            android:textColor="#1F7022"
+            android:textSize="16sp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/btnChangePass"
+            android:layout_width="190dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/button_profile"
+            android:drawableLeft="@drawable/lock"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:text="Change Password"
+            android:textColor="#1F7022"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnEdit" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
