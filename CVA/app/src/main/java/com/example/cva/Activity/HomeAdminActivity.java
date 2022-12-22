@@ -109,7 +109,7 @@ public class HomeAdminActivity extends AppCompatActivity implements NavigationVi
         TextView navName = headerView.findViewById(R.id.name_admin_tool);
         TextView navEmail = headerView.findViewById(R.id.email_admin_tool);
         ImageView navImg = headerView.findViewById(R.id.img_admin_tool);
-
+        navEmail.setText(currenUser.getEmail());
 
     }
     public void showUserInformation(){

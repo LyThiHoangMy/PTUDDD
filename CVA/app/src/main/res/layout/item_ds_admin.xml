@@ -31,13 +31,29 @@
                 />
 
             <TextView
-                android:id="@+id/price_sbAdmin"
+                android:id="@+id/des_sbAdmin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
-                android:text="Price"
+                android:text="Description"
                 android:gravity="center"
                 />
+        <TextView
+            android:id="@+id/fee_sbAdmin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="Fee"
+            android:gravity="center"
+            />
+        <TextView
+            android:id="@+id/start_sbAdmin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="Start"
+            android:gravity="center"
+            />
 
     </LinearLayout>
 
