@@ -41,7 +41,7 @@ import java.io.IOException;
 
 public class HomeAdminActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
-    private static final int REQUEST_PICK_PHOTO = 100;
+    private static final int REQUEST_PICK_PHOTO = 200;
     FirebaseAuth mAuth;
     FirebaseUser currenUser;
     private ImageView img_admin_tool;

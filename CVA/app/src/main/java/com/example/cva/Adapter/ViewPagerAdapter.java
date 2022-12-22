@@ -13,6 +13,8 @@ import com.example.cva.Fragment.SupportFragment;
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
+    //final private ProfileFragment profileFragment = new ProfileFragment();
+
     public ViewPagerAdapter(@NonNull FragmentManager fm, int behavior) {
         super(fm, behavior);
     }

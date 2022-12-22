@@ -15,7 +15,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_avatar_name_profile"
         android:layout_width="match_parent"
-        android:layout_height="263dp"
+        android:layout_height="230dp"
         android:gravity="center"
         android:paddingTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,9 +28,10 @@
             android:id="@+id/avatarProfile"
             android:layout_width="110dp"
             android:layout_height="110dp"
-            android:layout_marginTop="75dp"
+            android:layout_marginTop="36dp"
             android:src="@drawable/avt"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -60,7 +61,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_firstname"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         app:layout_constraintTop_toBottomOf="@+id/layout_avatar_name_profile"
@@ -89,12 +90,11 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
-        <TextView
+        <EditText
             android:id="@+id/firstname"
-            android:layout_width="wrap_content"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
-            android:text="Ly"
-            android:layout_marginLeft="25dp"
+            android:layout_marginLeft="15dp"
             android:textSize="16sp"
             android:textColor="#1F7022"
             app:layout_constraintStart_toEndOf="@+id/textFName"
@@ -114,7 +114,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_lastname"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         app:layout_constraintTop_toBottomOf="@+id/layout_firstname"
@@ -143,12 +143,11 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
-        <TextView
+        <EditText
             android:id="@+id/lastname"
-            android:layout_width="wrap_content"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
-            android:text="Hoang My"
-            android:layout_marginLeft="25dp"
+            android:layout_marginLeft="15dp"
             android:textSize="16sp"
             android:textColor="#1F7022"
             app:layout_constraintStart_toEndOf="@+id/textLName"
@@ -168,7 +167,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_mail"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         app:layout_constraintTop_toBottomOf="@+id/layout_lastname"
@@ -197,12 +196,12 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
-        <TextView
+        <EditText
             android:id="@+id/mail"
-            android:layout_width="wrap_content"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
             android:text="hoangmy@gmail.com"
-            android:layout_marginLeft="72dp"
+            android:layout_marginLeft="63dp"
             android:textSize="16sp"
             android:textColor="#1F7022"
             app:layout_constraintStart_toEndOf="@+id/textMail"
