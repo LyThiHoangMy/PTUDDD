@@ -17,6 +17,8 @@ import com.example.cva.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
+
 public class FragmentHomeAd extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";
@@ -28,7 +30,7 @@ public class FragmentHomeAd extends Fragment {
     private View mView;
 
     EditText des_addPitch, name_addPitch, fee_addPitch, start_addPitch;
-    Button bt_addPitch;
+    Button bt_addPitch, btn_update, btn_remove;
 
     private DatabaseReference rootDatabaseRef;
 
@@ -65,12 +67,50 @@ public class FragmentHomeAd extends Fragment {
        fee_addPitch = mView.findViewById(R.id.fee_addPitch);
        start_addPitch = mView.findViewById(R.id.start_addPitch);
        bt_addPitch = mView.findViewById(R.id.bt_addPitch);
+       btn_update = mView.findViewById(R.id.btn_update);
+       btn_remove = mView.findViewById(R.id.btn_remove);
 
        rootDatabaseRef = FirebaseDatabase.getInstance().getReference();
 
        addPitch();
+       updatePitch();
+       removePitch();
 
        return mView;
+    }
+
+    private void removePitch() {
+        DAOPitch dao = new DAOPitch();
+        btn_remove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dao.remove("-NJsxcHpgMwGRfjTj6m8").addOnSuccessListener(suc ->{
+                    Toast.makeText(getActivity(), "Remove pitch successfully!", Toast.LENGTH_SHORT).show();
+                }).addOnFailureListener(er ->{
+                    Toast.makeText(getActivity(), "" + er.getMessage(), Toast.LENGTH_SHORT).show();
+                });
+            }
+        });
+    }
+
+    private void updatePitch() {
+        DAOPitch dao = new DAOPitch();
+        btn_update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                HashMap<String, Object> hashMap = new HashMap<>();
+                hashMap.put("des",des_addPitch.getText().toString());
+                hashMap.put("name", name_addPitch.getText().toString());
+                hashMap.put("fee",fee_addPitch.getText().toString());
+                hashMap.put("star", start_addPitch.getText().toString());
+
+                dao.update("-NJsxcHpgMwGRfjTj6m8", hashMap).addOnSuccessListener(suc ->{
+                    Toast.makeText(getActivity(), "Update pitch successfully!", Toast.LENGTH_SHORT).show();
+                }).addOnFailureListener(er ->{
+                    Toast.makeText(getActivity(), "" + er.getMessage(), Toast.LENGTH_SHORT).show();
+                });
+            }
+        });
     }
 
     private void addPitch() {

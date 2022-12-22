@@ -59,18 +59,20 @@
         android:background="@drawable/reg_btn_style"
         android:text="Add Pitch" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Để xem danh sách sân bóng "
-        android:padding="10dp" />
-
     <Button
-        android:id="@+id/bt_readPitch"
+        android:layout_marginTop="15dp"
+        android:id="@+id/btn_update"
         android:layout_width="103dp"
         android:layout_height="35dp"
         android:background="@drawable/reg_btn_style"
-        android:text="Read" />
+        android:text="Update" />
+
+    <Button
+        android:layout_marginTop="15dp"
+        android:id="@+id/btn_remove"
+        android:layout_width="103dp"
+        android:layout_height="35dp"
+        android:background="@drawable/reg_btn_style"
+        android:text="Remove" />
 
 </LinearLayout>
