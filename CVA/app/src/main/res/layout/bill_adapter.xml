@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="8dp"
+    android:layout_margin="10dp"
+    android:backgroundTint="#B4F3B7">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/imgBill"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/list"
+        android:layout_centerVertical="true"/>
+
+    <LinearLayout
+        android:id="@+id/layout_contentBill"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_toEndOf="@+id/imgBill"
+        android:layout_marginStart="10dp"
+        android:layout_centerVertical="true">
+
+        <TextView
+            android:id="@+id/tvBillDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ngay dat"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/tvBillName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ten san"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tvBillFee"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fee"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
+        <TextView
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/btnReBook"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:background="@drawable/button_profile"
+            android:backgroundTint="#ffffff"
+            android:gravity="center"
+            android:text="Rebook"
+            android:textColor="#1F7022"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
