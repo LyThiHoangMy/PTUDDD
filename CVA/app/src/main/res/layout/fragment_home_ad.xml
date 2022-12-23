@@ -13,9 +13,9 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Nhập đầy đủ thông tin để thêm sân bóng"
+        android:hint="Nhập đầy đủ thông tin để thực hiện thêm một sân bóng mới"
         android:padding="10dp"
-        android:textColor="#E61F1F"
+        android:textColor="#217024"
         android:textSize="18dp"
         android:textStyle="bold|italic" />
 
