@@ -43,4 +43,13 @@ public class PitchModelAd {
     public void setName(String name) {
         this.name = name;
     }
+
+//    @Override
+//    public String toString(){
+//        return "Pitch{"+
+//                "Description:" +des +
+//                ",Name: '" +name+ '\'' +
+//                ", Fee: '" +fee+ '\'' +
+//                ", Star: '"+ star+ '}';
+//    }
 }
